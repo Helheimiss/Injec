@@ -11,11 +11,12 @@ namespace Injec
     /// </summary>
     public partial class ModulesProcessInfo : Window
     {
-        Process SelectedProcess;
+        int PID = 0;
 
-        public ModulesProcessInfo(Process SelectedProcess)
+        public ModulesProcessInfo(int pid)
         {
-            this.SelectedProcess = SelectedProcess;
+            PID = pid;
+
             InitializeComponent();
 
             LoadModulesDataGrid();
@@ -44,16 +45,13 @@ namespace Injec
 
         void LoadModulesDataGrid()
         {
-            ProcessModuleCollection modules = SelectedProcess.Modules;
+            var modules = Process.GetProcessById(PID).Modules;
             Title = $"Modules count {modules.Count}";
-
 
 
             List<InjecModules> result = new List<InjecModules>(modules.Count);
             for (int i = 0; i < modules.Count; ++i)
-            {
                 result.Add(new InjecModules(modules[i].ModuleName, modules[i].FileName, modules[i].BaseAddress, modules[i].ModuleMemorySize, modules[i].EntryPointAddress, modules[i].FileVersionInfo));
-            }
 
             ModulesDataGrid.ItemsSource = result;
         }

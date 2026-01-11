@@ -96,25 +96,16 @@ namespace Injec
         {
             if (ProcessDataGrid.SelectedItem != null)
             {
-                InjecProcess CurrProc = ProcessDataGrid.SelectedItem as InjecProcess;
-                var CurrProcess = Process.GetProcessesByName(CurrProc.ProcessName);
-
-                foreach (var item in CurrProcess)
+                try
                 {
-                    if (item.Id == CurrProc.PID)
-                    {
-                        try
-                        {
-                            ModulesProcessInfo mpi = new ModulesProcessInfo(item);
-                            mpi.ShowDialog();
-                            return;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-
-                    }
+                    InjecProcess pr = ProcessDataGrid.SelectedItem as InjecProcess;
+                    ModulesProcessInfo mpi = new ModulesProcessInfo(pr.PID);
+                    mpi.ShowDialog();
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
