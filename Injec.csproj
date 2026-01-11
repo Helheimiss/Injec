@@ -53,7 +53,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\flat.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Blue_Flower_Field_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
@@ -271,9 +271,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\flat.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.7.1 %28x86 and x64%29</ProductName>
@@ -295,6 +292,7 @@
     <Folder Include="Injec\include\" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Blue_Flower_Field_Icon.ico" />
     <Resource Include="Injec\.idea\editor.xml" />
     <Resource Include="Injec\.idea\misc.xml" />
     <Resource Include="Injec\.idea\modules.xml" />
