@@ -15,7 +15,7 @@ namespace Injec
         }
 
 
-        [DllImport("libInjec.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool InjectModuleToProcess(int PID, string modulePath);
+        [DllImport("libInjec.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Unicode)]
+        public static extern bool InjectModuleToProcess(int PID,  string modulePath);
     }
 }
